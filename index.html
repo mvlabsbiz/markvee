@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Vee</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Theme Picker -->
+    <div class="theme-picker">
+        <label for="color-input">Background Color:</label>
+        <input type="color" id="color-input" value="#1a3a52">
+        <button id="reset-theme" class="reset-btn">Reset</button>
+    </div>
+
+    <div class="container">
+        <!-- Header with landscape photo -->
+        <header class="header">
+            <img src="placeholder-landscape.jpg" alt="Landscape" class="header-image">
+        </header>
+
+        <!-- Profile section -->
+        <section class="profile-section">
+            <div class="profile-container">
+                <div class="profile-image-wrapper">
+                    <img src="placeholder-profile.jpg" alt="My Profile Picture" class="profile-image">
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">Mark Vee</h1>
+                    <p class="profile-title">Developer & Creator</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#travel">Travel</a></li>
+                <li><a href="#links">Links</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>
+
+        <!-- Streaming section -->
+        <section class="streaming-section">
+            <div class="streaming-grid">
+                <!-- TV/Movie -->
+                <div class="streaming-card">
+                    <div class="streaming-content">
+                        <img src="placeholder-tv.jpg" alt="Currently streaming" class="streaming-image">
+                    </div>
+                    <p class="streaming-label">TV/Movie</p>
+                </div>
+
+                <!-- Music -->
+                <div class="streaming-card">
+                    <div class="streaming-content">
+                        <img src="placeholder-music.jpg" alt="Currently streaming" class="streaming-image">
+                    </div>
+                    <p class="streaming-label">Music</p>
+                </div>
+
+                <!-- Podcast -->
+                <div class="streaming-card">
+                    <div class="streaming-content">
+                        <img src="placeholder-podcast.jpg" alt="Currently streaming" class="streaming-image">
+                    </div>
+                    <p class="streaming-label">Podcast</p>
+                </div>
+
+                <!-- Audiobook -->
+                <div class="streaming-card">
+                    <div class="streaming-content">
+                        <img src="placeholder-audiobook.jpg" alt="Currently streaming" class="streaming-image">
+                    </div>
+                    <p class="streaming-label">Audiobook</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main content: sidebar + feed -->
+        <div class="main-content">
+            <!-- Left Sidebar: Hobbies & Pictures -->
+            <aside class="sidebar">
+                <h3 class="sidebar-title">Hobbies & Projects</h3>
+                <div class="picture-grid">
+                    <div class="picture-item">
+                        <img src="placeholder-pic-1.jpg" alt="Picture">
+                    </div>
+                    <div class="picture-item">
+                        <img src="placeholder-pic-2.jpg" alt="Picture">
+                    </div>
+                    <div class="picture-item">
+                        <img src="placeholder-pic-3.jpg" alt="Picture">
+                    </div>
+                    <div class="picture-item">
+                        <img src="placeholder-pic-4.jpg" alt="Picture">
+                    </div>
+                    <div class="picture-item">
+                        <img src="placeholder-pic-5.jpg" alt="Picture">
+                    </div>
+                    <div class="picture-item">
+                        <img src="placeholder-pic-6.jpg" alt="Picture">
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Feed: Posts -->
+            <main class="feed">
+                <h2 class="feed-title">Posts</h2>
+                
+                <!-- Post card examples -->
+                <article class="post-card">
+                    <div class="post-header">
+                        <img src="placeholder-profile.jpg" alt="Mark Vee" class="post-avatar">
+                        <div class="post-meta">
+                            <h4>Mark Vee</h4>
+                            <span class="post-date">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>"The only way to do great work is to love what you do." - Steve Jobs</p>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn">❤️ Like</button>
+                        <button class="action-btn">💬 Comment</button>
+                        <button class="action-btn">🔗 Share</button>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-header">
+                        <img src="placeholder-profile.jpg" alt="Mark Vee" class="post-avatar">
+                        <div class="post-meta">
+                            <h4>Mark Vee</h4>
+                            <span class="post-date">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Just finished an amazing article on web performance optimization. Check it out: <a href="#">Read more →</a></p>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn">❤️ Like</button>
+                        <button class="action-btn">💬 Comment</button>
+                        <button class="action-btn">🔗 Share</button>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <div class="post-header">
+                        <img src="placeholder-profile.jpg" alt="Mark Vee" class="post-avatar">
+                        <div class="post-meta">
+                            <h4>Mark Vee</h4>
+                            <span class="post-date">1 day ago</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <img src="placeholder-meme.jpg" alt="Funny meme" class="post-image">
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn">❤️ Like</button>
+                        <button class="action-btn">💬 Comment</button>
+                        <button class="action-btn">🔗 Share</button>
+                    </div>
+                </article>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #333;
+    --accent-color: #0066cc;
+    --text-light: #f5f5f5;
+    --text-dark: #1a1a1a;
+    --border-color: #ddd;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #1a3a52;
+    color: var(--text-dark);
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+
+/* ==================== THEME PICKER ==================== */
+.theme-picker {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    background: white;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.theme-picker label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.theme-picker input[type="color"] {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    padding: 6px 12px;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+    background: #e0e0e0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ==================== HEADER ==================== */
+.header {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================== PROFILE SECTION ==================== */
+.profile-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.profile-container {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+.profile-image-wrapper {
+    flex-shrink: 0;
+}
+
+.profile-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-name {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.profile-title {
+    font-size: 18px;
+    color: #666;
+}
+
+/* ==================== NAVIGATION BAR ==================== */
+.navbar {
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+    sticky: top;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 16px;
+    font-weight: 600;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+    background: #f0f0f0;
+}
+
+/* ==================== STREAMING SECTION ==================== */
+.streaming-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.streaming-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.streaming-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+.streaming-content {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.streaming-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.streaming-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 600;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+.main-content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    height: fit-content;
+    sticky: top;
+    top: 100px;
+}
+
+.sidebar-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+}
+
+.picture-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+.picture-item {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.picture-item:hover {
+    transform: scale(1.05);
+}
+
+.picture-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ==================== FEED ==================== */
+.feed {
+    max-width: 900px;
+}
+
+.feed-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+}
+
+/* ==================== POST CARD ==================== */
+.post-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    transition: box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.post-meta h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.post-date {
+    font-size: 12px;
+    color: #999;
+}
+
+.post-content {
+    margin-bottom: var(--spacing-md);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.post-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.post-content a:hover {
+    text-decoration: underline;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 8px;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.post-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+    padding-top: var(--spacing-md);
+}
+
+.action-btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: #f9f9f9;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background: #f0f0f0;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .feed {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .streaming-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        gap: var(--spacing-md);
+    }
+
+    .header {
+        height: 200px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .streaming-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .nav-links {
+        gap: var(--spacing-sm);
+        font-size: 14px;
+    }
+
+    .nav-links a {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .profile-name {
+        font-size: 20px;
+    }
+
+    .post-actions {
+        flex-wrap: wrap;
+    }
+
+    .action-btn {
+        flex: 0 1 calc(33.333% - 8px);
+        padding: var(--spacing-sm);
+        font-size: 12px;
+    }
+}
