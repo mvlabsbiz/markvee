@@ -1,0 +1,258 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #0f1419;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 16px; }
+
+/* Banner */
+.banner-container {
+  width: 100vw;
+  height: 280px;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  background: #1a1a1a;
+  margin-bottom: 24px;
+}
+.banner-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Header */
+.site {
+  padding: 24px 0;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 24px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-photo-container {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #2a2a2a;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-text h1 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #888;
+}
+
+.site-description {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+#site-tagline {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.links {
+  font-size: 13px;
+  color: #666;
+}
+
+.links a {
+  color: #888;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: #aaa;
+}
+
+/* Composer */
+.composer {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.composer-photos {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.photo-btn {
+  padding: 8px 12px;
+  font-size: 13px;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.photo-btn:hover {
+  background: #333;
+}
+
+#post-text {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  background: #0f1419;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+#post-text:focus {
+  outline: none;
+  border-color: #3a3a3a;
+}
+
+.composer-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 10px;
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  color: #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.btn-secondary:hover {
+  background: #333;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 10px;
+  background: #0066cc;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #0052a3;
+}
+
+.preview-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.preview-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-item button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: rgba(0,0,0,0.7);
+  border: none;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Posts */
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.post-header {
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #666;
+}
+
+.post-text {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.post-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.post-image {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #0f1419;
+}
+
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

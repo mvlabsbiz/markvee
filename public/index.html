@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Vee — Founder & Principal Engineer</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div id="banner-container" class="banner-container" hidden>
+    <img id="banner-img" src="/banner" alt="Banner" class="banner-img">
+  </div>
+
+  <header class="site">
+    <div class="profile-header">
+      <div id="profile-photo-container" class="profile-photo-container" hidden>
+        <img id="profile-img" src="/profile" alt="Profile" class="profile-photo">
+      </div>
+      <div class="header-text">
+        <h1>Mark Vee</h1>
+        <p class="tagline">Founder & Principal Engineer</p>
+      </div>
+    </div>
+    <p class="site-description">25+ years building and operating corporate IT infrastructure. Now building for myself: infrastructure as craft, not compliance. Small business IT consultant and builder—helping founders own their own tech stack instead of renting it from algorithms. This desk is where I work out loud.</p>
+    <p id="site-tagline">Posting here instead of anywhere else.</p>
+    <div class="links">
+      <a href="#work">Work</a> / 
+      <a href="#education">Education</a> / 
+      <a href="#travel">Travel</a> / 
+      <a href="#links">Links</a> / 
+      <a href="#contacts">Contacts</a>
+    </div>
+  </header>
+
+  <div id="composer" hidden class="composer">
+    <div id="composer-photos" class="composer-photos">
+      <button id="profile-btn" class="photo-btn" title="Update profile photo">📷 Profile</button>
+      <button id="banner-btn" class="photo-btn" title="Update banner photo">🏞️ Banner</button>
+      <input type="file" id="profile-file" accept="image/*" hidden>
+      <input type="file" id="banner-file" accept="image/*" hidden>
+    </div>
+    <textarea id="post-text" placeholder="What's on your mind?"></textarea>
+    <div class="composer-actions">
+      <input type="file" id="post-photos" multiple accept="image/*" hidden>
+      <button id="photo-upload-btn" class="btn-secondary">📸 Add Photos</button>
+      <button id="post-btn" class="btn-primary">Post</button>
+    </div>
+    <div id="preview-container" class="preview-container"></div>
+  </div>
+
+  <div id="posts" class="posts"></div>
+</main>
+
+<script src="/script.js"></script>
+</body>
+</html>

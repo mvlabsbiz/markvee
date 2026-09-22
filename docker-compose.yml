@@ -1,0 +1,19 @@
+services:
+  markvee-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: markvee-portal
+    ports:
+      - "4300:4300"
+    environment:
+      PORT: 4300
+      OWNER_TOKEN: ${OWNER_TOKEN}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4300/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
