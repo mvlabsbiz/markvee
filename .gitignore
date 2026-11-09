@@ -4,4 +4,6 @@ data/
 .DS_Store
 *.log
 *.vcf
+*.sqlite
+*.sqlite-journal
 coverage/

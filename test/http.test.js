@@ -23,7 +23,7 @@ const {
   assertPrivate,
   assertNoSecrets,
   withServer,
-} = require('./support');
+} = require('../test-helpers/support');
 
 const WAITING = [COPY.phoneVerified, COPY.unmatchedQuestion, COPY.pendingReview];
 const APPROVED = [COPY.phoneVerified, COPY.friendApproved];

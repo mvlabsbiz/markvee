@@ -2,6 +2,8 @@
 
 const test = require('node:test');
 const assert = require('node:assert/strict');
+const fs = require('fs');
+const os = require('os');
 const http = require('http');
 const { spawnSync } = require('child_process');
 const path = require('path');
@@ -22,6 +24,11 @@ const { phoneKey } = require('../lib/crypto-util');
 const ROOT = path.join(__dirname, '..');
 const PEPPER = 'unit-test-pepper-value';
 const E164 = '+15555550100';
+
+function tempStoragePath() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'markvee-access-'));
+  return path.join(dir, 'access.sqlite');
+}
 
 function setup(overrides = {}) {
   const store = createMemoryStore();
@@ -252,9 +259,11 @@ test('production handler fail-closes and clamps limits', async () => {
     sessionSecret: 'production-session-value',
     ownerToken: 'production-owner-token',
     siteOrigin: 'https://markvee.org',
+    storagePath: tempStoragePath(),
     now: () => 1_700_000_000_000,
     policy: { maxAttempts: 1000, codeTtlMs: 99_999_999, minResendIntervalMs: 0 },
   });
+  assert.equal(handler.store.kind, 'durable');
   assert.equal(handler.courier.mode, 'fail-closed');
   assert.equal(handler.courier.takeCodeForTests, undefined);
   assert.equal(handler.policy.maxAttempts, PROVISIONAL_POLICY.maxAttempts);
@@ -287,6 +296,7 @@ test('production handler fail-closes and clamps limits', async () => {
     assert.equal(await verified.text(), '{"ok":false}');
     assert.equal(handler.store.sessions.size, 0);
   } finally {
+    handler.store.close();
     await new Promise((resolve) => server.close(resolve));
   }
 });
@@ -301,6 +311,29 @@ test('environment variables cannot open the fake courier', () => {
     if (typeof courier.takeCodeForTests === 'function') process.exit(3);
   `], { cwd: ROOT, encoding: 'utf8' });
   assert.equal(result.status, 0, result.stderr);
+});
+
+test('test runtime defaults to the memory double', () => {
+  const handler = createAccessHandler({
+    runtime: 'test',
+    pepper: 'test-pepper-not-for-production',
+    sessionSecret: 'test-session-secret-value',
+    ownerToken: 'test-owner-token-value',
+    siteOrigin: 'https://markvee.org',
+  });
+  assert.equal(handler.store.kind, undefined);
+  assert.equal(typeof handler.store.transaction, 'function');
+});
+
+test('non-test runtime refuses an in-memory store', () => {
+  assert.throws(() => createAccessHandler({
+    runtime: 'production',
+    pepper: 'production-pepper-value',
+    sessionSecret: 'production-session-value',
+    ownerToken: 'production-owner-token',
+    siteOrigin: 'https://markvee.org',
+    store: createMemoryStore(),
+  }), /storage unavailable/);
 });
 
 test('handler refuses to start without required secrets', () => {
@@ -325,6 +358,7 @@ test('omitted runtime fail-closes and a malformed target is rejected', async () 
     sessionSecret: 'test-session-secret-value',
     ownerToken: 'test-owner-token-value',
     siteOrigin: 'https://markvee.org',
+    storagePath: tempStoragePath(),
   });
   assert.equal(handler.runtime, 'development');
   assert.equal(handler.courier.mode, 'fail-closed');
@@ -362,6 +396,7 @@ test('omitted runtime fail-closes and a malformed target is rejected', async () 
   await handler(req, limited);
   assert.equal(limited.status, 413);
   assert.equal(limited.body, '{"ok":false}');
+  handler.store.close();
 });
 
 test('review harness refuses production and a server that is not ready', async () => {
@@ -388,14 +423,21 @@ test('production environment selects the production runtime when unset', () => {
   const result = spawnSync(process.execPath, ['-e', `
     process.env.NODE_ENV = 'production';
     const { createAccessHandler } = require('./lib/access-handler');
+    const fs = require('fs');
+    const os = require('os');
+    const path = require('path');
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'markvee-prod-'));
     const handler = createAccessHandler({
       pepper: 'production-pepper-value',
       sessionSecret: 'production-session-value',
       ownerToken: 'production-owner-token',
       siteOrigin: 'https://markvee.org',
+      storagePath: path.join(dir, 'access.sqlite'),
     });
     if (handler.runtime !== 'production') process.exit(2);
     if (handler.courier.mode !== 'fail-closed') process.exit(3);
+    if (handler.store.kind !== 'durable') process.exit(4);
+    handler.store.close();
   `], { cwd: ROOT, encoding: 'utf8' });
   assert.equal(result.status, 0, result.stderr);
 });
